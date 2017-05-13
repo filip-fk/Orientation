@@ -8,8 +8,20 @@
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
+    <UserControl.Resources>
+        <Storyboard x:Name="wheel1" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="textBlock">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
 
     <Grid>
-        <TextBlock Text="o" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="150" FontFamily="Tempus Sans ITC" RenderTransformOrigin="0.51,0.577" Foreground="#FF0078D7"/>
+        <TextBlock x:Name="textBlock" Text="o" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="150" FontFamily="Tempus Sans ITC" RenderTransformOrigin="0.51,0.577" Foreground="#FF0078D7">
+            <TextBlock.RenderTransform>
+                <CompositeTransform/>
+            </TextBlock.RenderTransform>
+        </TextBlock>
     </Grid>
 </UserControl>

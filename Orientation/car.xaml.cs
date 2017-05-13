@@ -17,12 +17,11 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Orientation
 {
-    public sealed partial class wheel : UserControl
+    public sealed partial class car : UserControl
     {
-        public wheel()
+        public car()
         {
             this.InitializeComponent();
-            wheel1.Begin();
         }
     }
 }
