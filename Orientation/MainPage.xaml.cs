@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,6 +26,23 @@ namespace Orientation
         public MainPage()
         {
             this.InitializeComponent();
+
+            if (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.XamlCompositionBrushBase"))
+            {
+                Windows.UI.Xaml.Media.AcrylicBrush myBrush = new Windows.UI.Xaml.Media.AcrylicBrush();
+                myBrush.BackgroundSource = Windows.UI.Xaml.Media.AcrylicBackgroundSource.HostBackdrop;
+                myBrush.TintColor = Color.FromArgb(255, 225, 225, 225);
+                myBrush.FallbackColor = Color.FromArgb(255, 225, 225, 225);
+                myBrush.TintOpacity = 0;
+
+                grid.Background = myBrush;
+            }
+            else
+            {
+                SolidColorBrush myBrush = new SolidColorBrush(Color.FromArgb(255, 225, 225, 225));
+
+                grid.Background = myBrush;
+            }
         }
     }
 }
